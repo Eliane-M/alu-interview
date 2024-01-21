@@ -9,7 +9,7 @@ def minOperations(n):
     """
     for the calculation
     """
-     Actual = 1
+    Actual = 1
     num_of_ops = 0
 
     if type(n) is not int or n < 2:
