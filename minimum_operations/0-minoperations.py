@@ -9,21 +9,23 @@ def minOperations(n):
     """
     for the calculation
     """
-    current_content = 1
-    clipboard_content = 1
-    operations = 0
+     Actual = 1
+    num_of_ops = 0
 
-    while current_content < n:
-        if clipboard_content + current_content > n:
-            current_content *= 2
-            operations += 1
+    if type(n) is not int or n < 2:
+        return 0
+
+    while (Actual != n):
+
+        if (n % Actual == 0):
+            CopyAll = Actual
+            Paste = Actual + CopyAll
+            num_of_ops += 2
 
         else:
-            current_content = clipboard_content
-            clipboard_content += current_content
-            operations += 1
+            Paste = Actual + CopyAll
+            num_of_ops += 1
 
-    if current_content == n:
-        return operations
-    else:
-        return 0
+        Actual = Paste
+
+    return num_of_ops
