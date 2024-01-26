@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# for calculations of the rain collected
+"""
+for calculations of the rain collected
+"""
 
 
 def rain(walls):
