@@ -15,7 +15,7 @@ def rain(walls):
     right_max = 0
     total_water = 0
 
-    for i in range(len(walls) - 1):
+    for i in range(1, len(walls) - 1):
         left_max = max(left_max, walls[i])
 
         water = min(left_max, right_max) - walls[i]
