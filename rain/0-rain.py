@@ -8,19 +8,20 @@ def rain(walls):
     """
     amount of rain that can be calculated
     """
-    if not walls:
-        return 0
+    left_wall = water = lmax = rmax = 0
+    right_wall = len(walls) - 1
 
-    left_max = 0
-    right_max = 0
-    total_water = 0
-
-    for i in range(1, len(walls) - 1):
-        left_max = max(left_max, walls[i])
-
-        water = min(left_max, right_max) - walls[i]
-        total_water += water
-        if i < len(walls) - 1:
-            right_max = max(right_max, walls[len(walls) - 1 - i])
-
-    return total_water
+    while left_wall < right_wall:
+        if walls[left_wall] < walls[right_wall]:
+            if walls[left_wall] < lmax:
+                water += lmax - walls[left_wall]
+            else:
+                lmax = walls[left_wall]
+            left_wall += 1
+        else:
+            if walls[right_wall] < rmax:
+                water += rmax - walls[right_wall]
+            else:
+                rmax = walls[right_wall]
+            right_wall -= 1
+    return water
